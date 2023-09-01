@@ -1,6 +1,11 @@
+html{
+    background-color: black;
+}
+
 body {
+    box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background: var(--background2);
     background-attachment: fixed;
     font-size: 1.4vw;
@@ -12,9 +17,16 @@ body {
     --background3: radial-gradient(ellipse at bottom, rgba(28, 28, 46, 0.57),rgba(18, 26, 71, 0.675),rgba(8, 33, 80, 0.596)),
                     linear-gradient(rgb(39, 115, 93),rgb(40, 53, 47));
 }
+.flex{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+.flex img{
+    height: 24px;
+}
 main {
-   
-    
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(7,1fr);
@@ -32,7 +44,35 @@ main {
 main > div {
     background: var(--background3);
 }
+.search-box{
+    height: 30px;
+    padding: 10px 5px;
+    gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.hide{
+    transition: .3s ease-in-out;
+    transform-origin: right;
+    transform: scale(0);
+}
+.show{
+    transition: .3s ease-in-out;
+    transform: scale(1);
+}
+#input-city{
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+}
 
+#input-city:focus,#input-city:active{
+    border: none;
+    outline: none;
+}
 .today-weather-summary {
     grid-area: summ;
     border-radius: 5px;
@@ -43,7 +83,6 @@ main > div {
     width: 3em;
     height: 3em;
     display: block;
-    margin-left: auto;
     margin-bottom: -10%;
     border: 0;
     background: url(./images/search-image.png);
@@ -53,15 +92,14 @@ main > div {
 
 .cloud-icon {
     display: block;
-    height: 50px;
+    height: auto;
+    width: 70px;
 }
 .temp, .temp-unit {
     display: inline;
     font-size: 3em;
     margin: 0;
 }
-
-
 .separator {
     height: 1px;
     background-color: #ddd;
@@ -99,7 +137,7 @@ main > div {
 }
 
 .numeric {
-    font-size: 3em;
+    font-size: 2.5em;
     margin: 0;
     align-self: flex-start;
 }
@@ -184,6 +222,7 @@ main > div {
     padding: 0.4em 0.8em;
     font-size: 0.8em;
 }
+
 .forecast-period-div {
     display: flex;
     justify-content: space-between;
@@ -196,13 +235,30 @@ main > div {
     padding: 1em;
     height: 80%;
     overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+.vertical-container::-webkit-scrollbar {
+    width: 7px; /* Adjust the width as desired */
+}
+
+.vertical-container::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.vertical-container::-webkit-scrollbar-thumb {
+    background-color:#223344;
+}
+
+.vertical-container::-webkit-scrollbar-thumb:hover {
+    background-color: #182431;
 }
 .forecast-div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    
+    align-items: center;  
 }
 .weather-image {
     width: 2em;
@@ -222,6 +278,8 @@ main > div {
     border-radius: 0.25em;
     box-shadow:-0.25em -0.30em 1em 1.3em #1b2434a9,
                 -0.25em 0.25em 0.25em 0.50em #19242e;
+    padding: 7px;
+    cursor: pointer;
 }
 .tom-temp-data {
     display: flex;
@@ -376,21 +434,6 @@ main > div:hover {
     radial-gradient()
 }
 /* almost done only issue is when resizing the viewport button background images does not resize. */
-button:hover {
+button:hover,select:hover {
     cursor: pointer;
-}
-select:hover {
-    cursor: pointer;
-}
-.forecast:hover, .map:hover {
-    padding-right: 0.7em;
-    padding-bottom: 0.6em;
-    margin: -0.4em;
-    transition-duration: 0.6s;
-}
-.today-weather-summary:hover, .highlights:hover {
-    padding-right: 0.3em;
-    padding-bottom: 1.4em;
-    margin: -0.4em;
-    transition-duration: 0.6s;
 }
