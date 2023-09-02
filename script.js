@@ -4,6 +4,7 @@ let data;
 let city;
 let SearchBar = document.querySelector('#input-city')
 let key = `ee595b13872be49fe89468a273644d23`;
+let data_days;
 
 function getUserLocation() {
     return new Promise((resolve, reject) => {
@@ -38,9 +39,23 @@ async function fetchWeatherData(link) {
     }
 }
 
+async function days_7(geturl) {
+    url7days = geturl;
+    try {
+        const response_days = await fetch(url7days);
+        const response_days_data = await response_days.json();
+        data_days = response_days_data;
+        write_data_days();
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+    }
+}
+
 (async function () {
     try {
         await getUserLocation(); // Wait for location data to be obtained
+
+        await days_7( `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&excluded=hourly&appid=${key}`)
 
         await fetchWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`); // Wait for weather data to be fetched
 
@@ -75,6 +90,7 @@ addEventListener('keypress', (event) => {
             document.querySelector('#iframe-src').src = `https://www.google.com/maps?q=${encodeURIComponent(city)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
             fetchWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ee595b13872be49fe89468a273644d23&units=metric`); // Wait for weather data to be fetched
+            days_7( `https://api.openweathermap.org/data/2.5/forecast?q=${city}&excluded=hour&appid=ee595b13872be49fe89468a273644d23`);
         }
     }
 })
@@ -92,7 +108,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
 async function writedata() {
 
-    let temp = data.main.temp<50?data.main.temp:data.main.temp-273.15;
+    let temp = data.main.temp < 50 ? data.main.temp : data.main.temp - 273.15;
     document.querySelector('#temprature').textContent = parseInt(temp);
     document.querySelector('#description').textContent = data.weather[0].description;
     document.querySelector('#location').textContent = data.name;
@@ -138,9 +154,60 @@ async function writedata() {
 
     document.querySelector('#visibility-km').textContent = data.visibility / 1000
 
-    document.querySelector('#feels-temprature').textContent = parseInt(data.main.feels_like<50?data.main.feels_like:data.main.feels_like-273.15);
+    document.querySelector('#feels-temprature').textContent = parseInt(data.main.feels_like < 50 ? data.main.feels_like : data.main.feels_like - 273.15);
 
-    document.querySelector('#country-flag').src=`https://flagcdn.com/144x108/${data.sys.country.toLowerCase()}.png`;
+    document.querySelector('#country-flag').src = `https://flagcdn.com/144x108/${data.sys.country.toLowerCase()}.png`;
 
-    document.querySelector('#cloud-img').src=`http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+    document.querySelector('#cloud-img').src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+}
+
+function write_data_days() {
+    let all_hour=document.querySelectorAll('.forecast-div')
+    all_hour[0].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[0].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp1').textContent=`${parseInt(data_days.list[0].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp1').textContent=`${parseInt(data_days.list[0].main.temp-273.15)}°`
+    
+
+
+    all_hour[1].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[1].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp2').textContent=`${parseInt(data_days.list[1].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp2').textContent=`${parseInt(data_days.list[1].main.temp-273.15)}°`
+    
+    
+    
+    all_hour[2].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[2].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp3').textContent=`${parseInt(data_days.list[2].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp3').textContent=`${parseInt(data_days.list[2].main.temp-273.15)}°`
+    
+    
+    
+    all_hour[3].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[3].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp4').textContent=`${parseInt(data_days.list[3].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp4').textContent=`${parseInt(data_days.list[3].main.temp-273.15)}°`
+    
+    
+    all_hour[4].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[4].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp5').textContent=`${parseInt(data_days.list[4].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp5').textContent=`${parseInt(data_days.list[4].main.temp-273.15)}°`
+    
+    
+    
+    all_hour[5].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[5].weather[0].icon}.png`
+    
+    document.querySelector('#max-temp6').textContent=`${parseInt(data_days.list[5].main.temp_max-273.15)}° /`
+    document.querySelector('#min-temp6').textContent=`${parseInt(data_days.list[5].main.temp-273.15)}°`
+
+
+
+    all_hour[6].firstElementChild.src=`http://openweathermap.org/img/w/${data_days.list[6].weather[0].icon}.png`
+
+    document.querySelector('#forecast-temp').textContent=`${parseInt(data_days.list[5].main.temp-273.15)}°`
+    
+    document.querySelector('#forecast-details').textContent=`${data_days.list[5].weather.description}`
+
 }
