@@ -222,22 +222,21 @@ main > div {
     padding: 0.4em 0.8em;
     font-size: 0.8em;
 }
-
-.forecast-period-div {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.4em;
-}
 .vertical-container {
     background: var(--background2);
     border-radius: 5px;
     margin-top: 0.5em;
     padding: 1em;
-    height: 80%;
+    height: 90%;
     overflow: scroll;
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
+    text-align: center;
+}
+.vertical-container h4{
+    font-size: x-large;
+    margin: 0;
 }
 .vertical-container::-webkit-scrollbar {
     width: 7px; /* Adjust the width as desired */
@@ -259,11 +258,16 @@ main > div {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;  
+    height: 20%;
+    border-bottom: 1px solid white;
 }
 .weather-image {
-    width: 2em;
-    height: 2em;
+    width: 3.2em;
 }
+#last-img{
+    width: 4rem;
+}
+
 .min-temp {
     font-size: 0.8em;
     color: #dcb;
@@ -271,6 +275,7 @@ main > div {
     margin-bottom: 0.8em;
 }
 #tomorrow-forecast {
+    border: none;
     position: sticky;
     bottom: 0em;
     margin-bottom: 0;
