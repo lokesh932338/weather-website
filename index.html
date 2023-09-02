@@ -116,79 +116,62 @@
             </div>
         </div>
         <div class="forecast">
-            <div class="forecast-period-div">
-                <label for="forecast-period" id="forecast-label">7days forecast</label>
-                <select name="forecast-period" id="forecast-period">
-                    <option value="7 days">7 days</option>
-                    <option value="15 days">15 days</option>
-                    <option value="1 month">1 month</option>
-                    <option value="6 month">6 month</option>
-                    <option value="1 year">1 year</option>
-                </select>
-            </div>
             <div class="vertical-container">
-
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp1" class="max-temp">---</p>
+                    <p id="min-temp1" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p id="time" class="forecast-date">09:00 AM</p>
                 </div>
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp2" class="max-temp">--</p>
+                    <p id="min-temp2" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p class="forecast-date">12:00 PM</p>
                 </div>
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp3" class="max-temp">--</p>
+                    <p id="min-temp3" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p class="forecast-date">03:00 PM</p>
                 </div>
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp4" class="max-temp">--</p>
+                    <p id="min-temp4" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p class="forecast-date">06:00 PM</p>
                 </div>
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp5" class="max-temp">--</p>
+                    <p id="min-temp5" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p class="forecast-date">09:00 PM</p>
                 </div>
                 <div class="forecast-div">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img src="" alt="weather-image" class="weather-image">
                     <p class="temp-data">
-                    <p class="max-temp">+22&#x00B0;/</p>
-                    <p class="min-temp">+15</p>
+                    <p id="max-temp6" class="max-temp">--</p>
+                    <p id="min-temp6" class="min-temp">--</p>
                     </p>
-                    <p class="forecast-date">25 July</p>
-                    <p class="forecast-day">Monday</p>
+                    <p class="forecast-date">12:00 AM</p>
                 </div>
 
                 <div class="forecast-div" id="tomorrow-forecast">
-                    <img src="./images/cloud1.png" alt="weather-image" class="weather-image">
+                    <img id="last-img" src="" alt="weather-image" class="weather-image">
                     <div class="tom-temp-data">
                         <p id="tomorrow-label">Tomorrow</p>
-                        <p id="forecast-temp">23&#x00B0;</p>
-                        <p id="forecast-details">Thunder Storm day</p>
+                        <p id="forecast-temp">--</p>
+                        <p id="forecast-details">------------------</p>
                     </div>
 
                 </div>
@@ -199,51 +182,6 @@
 
         <div class="map">
             <iframe id="iframe-src" src="https://www.google.com/maps?q=&amp;t&amp;z=13&amp;ie=UTF8&amp;iwloc&amp;output=embed" width=740 height=350 allowfullscreen></iframe>
-            <!-- <p class="heading">Weather Condition Map</p> -->
-            <!-- <div class="percipitation">
-                <p class="heading">
-                    Percipitation
-                </p>
-                <div class="scale"></div>
-                <div class="scale-discription">
-                    <p>Extreme</p>
-                    <p>Heavy</p>
-                    <p>Moderate</p>
-                    <p>Light</p>
-
-                </div>
-            </div> -->
-            <!-- <div class="nearby-cities">
-                <div class="city">
-                    <img src="./images/cloud1.png" alt="weather-image">
-                    <p class="city-name">Florida<br>US</p>
-                </div>
-                <div class="city">
-                    <img src="./images/cloud1.png" alt="weather-image">
-                    <p class="city-name">Texus<br>US</p>
-                </div>
-                <div class="city">
-                    <img src="./images/cloud1.png" alt="weather-image">
-                    <p class="city-name">California<br>US</p>
-                </div>
-            </div> -->
-            <!-- <div class="action-menu">
-                <div class="zoom-buttons">
-                    <button class="zoom-in"></button>
-                    <button class="zoom-out"></button>
-                </div>
-                <div class="button-container">
-                    <button class="locate-self"></button>
-                </div>
-                <div class="button-container">
-                    <button class="more"></button>
-                </div>
-
-                <div class="button-container">
-                    <button class="map-type"></button>
-                </div>
-
-            </div> -->
         </div>
     </main>
     <script src="script.js"></script>
