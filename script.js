@@ -2,7 +2,7 @@ let latitude;
 let longitude;
 let data;
 let city;
-let SearchBar = document.querySelector('#input-city-container')
+let SearchBar = document.querySelector('#input-city')
 let key = `ee595b13872be49fe89468a273644d23`;
 let data_days;
 
