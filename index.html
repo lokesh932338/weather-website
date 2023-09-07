@@ -16,9 +16,11 @@
                 <input id="input-city" class="hide" type="search" placeholder="Enter Your City"></input>
             </div>
             <img id="cloud-img" class='cloud-icon' src="" alt="a cloud image"/>
-
-            <p id="temprature" class="temp">---</p>
-            <p class="temp-unit">&#x00B0;C</p>
+            <div class="data">
+                <p id="temprature" class="temp">----</p>
+                <p class="temp-unit">&#x00B0;C</p>
+            </div>
+            
             <p id="description" class="description">-----------</p>
             <div class="separator"></div>
             <div class="flex" title="INDIA">
@@ -37,15 +39,6 @@
                     <p id="wind-speed" class="numeric">-.--</p>
                     <p class="unit">Km/h</p>
                 </div>
-                <p id="time-at-wind" class="time">--:--</p>
-            </div>
-            <div id="uv-index" class="highlight-item">
-                <p class="heading">UV-Index</p>
-                <div class="data">
-                    <p class="numeric">5.50</p>
-                    <p class="unit">UV</p>
-                </div>
-
             </div>
             <div id="sunrise-sunset" class="highlight-item">
                 <p class="heading">Sunrise & Sunset</p>
@@ -76,11 +69,6 @@
                         <p id="humidity-percentage" class="numeric">--</p>
                         <p class="unit">%</p>
                     </div>
-
-                    <div id="dew-point-data">
-                        <img class="symbol" src="./images/dew-point-image.png" />
-                        <p class="details">The dew point is 27&#x00B0 right now</p>
-                    </div>
                 </div>
 
 
@@ -92,12 +80,6 @@
                         <p id="visibility-km" class="numeric">--</p>
                         <p class="unit">km</p>
                     </div>
-
-
-                    <div id="visibility-data">
-                        <img class="symbol" src="./images/visibility-image.png" alt="eye-image" />
-                        <p class="details">Haze is affecting visibility</p>
-                    </div>
                 </div>
 
 
@@ -105,11 +87,9 @@
             <div id="feels-like" class="highlight-item">
                 <p class="heading">Feels Like</p>
                 <div class="content">
-                    <p id="feels-temprature" class="temp">---</p>
-                    <p class="temp-unit">&#x00B0;C</p>
-                    <div id="feels-like-details">
-                        <img class='symbol' src="./images/thermometer-image.png" alt="thermometer image">
-                        <p class="details">Humidity is making it feel hotter</p>
+                    <div class="data">
+                        <p id="feels-temprature" class="temp">---</p>
+                        <p class="temp-unit">&#x00B0;C</p>
                     </div>
                 </div>
 
@@ -184,6 +164,12 @@
             <iframe id="iframe-src" src="https://www.google.com/maps?q=&amp;t&amp;z=13&amp;ie=UTF8&amp;iwloc&amp;output=embed" width=740 height=350 allowfullscreen></iframe>
         </div>
     </main>
+    <footer>
+        <div id="contributer">
+            <p>UI Designer : <a href="https://github.com/lokesh932338">Lokesh Kumar</a><br>
+                Logic Given By : <a href="https://github.com/SAGARSINGH-1">Sagar Singh</a></p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 
