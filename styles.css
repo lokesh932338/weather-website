@@ -1,7 +1,7 @@
 body {
     box-sizing: border-box;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background: var(--background2);
     background-attachment: fixed;
     font-size: 1.4vw;
@@ -28,7 +28,6 @@ main {
     grid-template-columns: repeat(7,1fr);
     grid-template-rows: repeat(5,1fr);
     grid-template-areas: "summ summ high high high high high"
-    /* "summ summ high high high high high" */
     "forecast forecast map map map map map"
     "forecast forecast map map map map map"
     "forecast forecast map map map map map"
@@ -46,6 +45,7 @@ main > div {
     gap: 0.5em;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-direction: row-reverse;
 }
 .hide{
@@ -57,12 +57,22 @@ main > div {
     transition: .3s ease-in-out;
     transform: scale(1);
 }
+#input-city-container {
+    width: 85%;
+    background: linear-gradient(150deg, rgb(25, 169, 123),rgb(20, 115, 217));
+    border-radius: 0.5em;
+    padding: 0.08em;
+}
 #input-city{
-    width: 80%;
-    padding: 5px 10px;
-    border-radius: 5px;
+    width: 100%;
+    padding:0.3em 0.7em;
+    border-radius: 0.5em;
+    z-index: 1;
+    background-color: #aaa;
     border: none;
     text-align: left;
+    
+    color: rgb(55, 49, 43)
 }
 
 #input-city:focus,#input-city:active{
@@ -75,14 +85,11 @@ main > div {
     padding: 1em;
     
 }
-.today-weather-summary .data {
-    justify-content: left;
-}
+
 .search-button {
     width: 2em;
     height: 2em;
     display: block;
-    /* margin-bottom: -10%; */
     margin-top: 0.5em;
     margin-left: 0;
     border: 0;
@@ -96,11 +103,7 @@ main > div {
     height: auto;
     width: 2em;
 }
-/* .temp, .temp-unit {
-    display: inline;
-    font-size: 3em;
-    margin: 0;
-} */
+
 .temp {
     font-size: 3em;
     margin: 0;
@@ -111,7 +114,6 @@ main > div {
     margin: 0;
     display: inline;
     margin-top:0.6em;
-    /* text-align: top; */
 }
 .separator {
     height: 1px;
@@ -147,9 +149,7 @@ main > div {
 .data {
     display: flex;
     justify-content: left;
-    /* margin-left: 2em; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
+    
 }
 
 .numeric {
@@ -184,11 +184,9 @@ main > div {
     background: var(--background2);
     border-radius: 5px;
     padding: 0.5em;
-    /* text-align: center; */
 }
 
 .event-timings .event-name {
-    /* font-size: 1.2em; */
     margin-top: 0.2em;
     margin-bottom: 0;
 }
@@ -206,7 +204,6 @@ main > div {
 }
 .content {
     display: flex;
-    /* justify-content: center; */
     margin-top: 0;
 }
 .details {
