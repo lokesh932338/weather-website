@@ -42,11 +42,10 @@ main > div {
     background: var(--background3);
 }
 .search-box{
-    height: 30px;
-    padding: 10px 5px;
-    gap: 5px;
+    height: 2em;
+    gap: 0.5em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row-reverse;
 }
 .hide{
@@ -76,11 +75,16 @@ main > div {
     padding: 1em;
     
 }
+.today-weather-summary .data {
+    justify-content: left;
+}
 .search-button {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     display: block;
-    margin-bottom: -10%;
+    /* margin-bottom: -10%; */
+    margin-top: 0.5em;
+    margin-left: 0;
     border: 0;
     background: url(./images/search-image.png);
     background-size: 80%;
@@ -90,12 +94,24 @@ main > div {
 .cloud-icon {
     display: block;
     height: auto;
-    width: 70px;
+    width: 2em;
 }
-.temp, .temp-unit {
+/* .temp, .temp-unit {
     display: inline;
     font-size: 3em;
     margin: 0;
+} */
+.temp {
+    font-size: 3em;
+    margin: 0;
+    text-align: right;
+    display: inline;
+}
+.temp-unit {
+    margin: 0;
+    display: inline;
+    margin-top:0.6em;
+    /* text-align: top; */
 }
 .separator {
     height: 1px;
@@ -112,7 +128,7 @@ main > div {
     grid-template-rows: 2em 1fr 1fr;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas: "heading . ."
-    "wind uv ss"
+    "wind ss ss"
     "hum vis fl";
     border-radius: 5px;
     padding: 1em;
@@ -130,11 +146,14 @@ main > div {
 }
 .data {
     display: flex;
-    margin: 0;
+    justify-content: left;
+    /* margin-left: 2em; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 .numeric {
-    font-size: 2.5em;
+    font-size: 3em;
     margin: 0;
     align-self: flex-start;
 }
@@ -165,23 +184,30 @@ main > div {
     background: var(--background2);
     border-radius: 5px;
     padding: 0.5em;
+    /* text-align: center; */
 }
 
 .event-timings .event-name {
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
     margin-top: 0.2em;
     margin-bottom: 0;
 }
+.event-timings .numeric {
+    font-size: 2.5em;
+}
+.event-timings .unit {
+    font-size: 1.5em;
+    margin-top: 0.6em;
+}
 .event-timings {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
 }
 .content {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: center; */
     margin-top: 0;
-    align-items: flex-start;
 }
 .details {
     margin-top: 2em;
@@ -312,13 +338,51 @@ main > div {
     margin: auto;
     display: block;
 }
+#contributer {
+    background: var(--background3);
+    color: #aaa;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5em 0.3em 0.5em;
+    margin-top:1em;
+    text-align: right;
+    border-radius: 0.3em;
+}
 
-
+#contributer a {
+    text-decoration: underline;
+    color: rgb(191, 189, 187)
+}
 main > div:hover {
     background: linear-gradient(rgba(80,50,50,0.4),rgba(50,40,40,0.3)),
     radial-gradient()
 }
-/* almost done only issue is when resizing the viewport button background images does not resize. */
+
 button:hover,select:hover {
     cursor: pointer;
+}
+@media (max-width:800px) {
+    main {
+        font-size: 3vw;
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .highlights {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 2em 1fr 1fr 1fr;
+        grid-template-areas: "heading ."
+        "ss ss"
+        "wind hum"
+        "vis fl";
+    }
+    .numeric {
+        font-size: 3em;
+
+    }
+    .unit {
+        font-size: 1.5em;
+        margin-top: 0.9em;
+    }
+    
 }
