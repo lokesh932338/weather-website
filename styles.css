@@ -64,11 +64,11 @@ main > div {
     padding: 0.08em;
 }
 #input-city{
-    width: 100%;
-    padding:0.3em 0.7em;
+    width: 80%;
+    padding:0.5em 0.7em;
     border-radius: 0.5em;
     z-index: 1;
-    background-color: #aaa;
+    background-color: white;
     border: none;
     text-align: left;
     
