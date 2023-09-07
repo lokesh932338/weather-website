@@ -2,7 +2,7 @@ let latitude;
 let longitude;
 let data;
 let city;
-let SearchBar = document.querySelector('#input-city')
+let SearchBar = document.querySelector('#input-city-container')
 let key = `ee595b13872be49fe89468a273644d23`;
 let data_days;
 
@@ -80,7 +80,7 @@ setInterval(() => {
     time.hour = time.hour % 12 || 12;
 
     document.querySelector('#time').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}:${String(time.second).padStart(2, '0')} ${amPm}`;
-    document.querySelector('#time-at-wind').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')} ${amPm}`;
+    // document.querySelector('#time-at-wind').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')} ${amPm}`;
 }, 500);
 
 addEventListener('keypress', (event) => {
