@@ -6,13 +6,43 @@ let SearchBar = document.querySelector('#input-city')
 let key = `ee595b13872be49fe89468a273644d23`;
 let data_days;
 
-function getUserLocation() {
+// Function to retrieve a cookie by name
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.trim().split('=');
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+}
+
+// Function to check if latitude and longitude cookies exist
+function areLocationCookiesSet() {
+    const latitudeCookie = getCookie("latitude");
+    const longitudeCookie = getCookie("longitude");
+    return latitudeCookie !== null && longitudeCookie !== null;
+}
+
+// Modified getUserLocation function to check for existing cookies
+async function getUserLocation() {
+    if (areLocationCookiesSet()) {
+        // Cookies exist, retrieve coordinates from cookies
+        latitude = parseFloat(getCookie("latitude"));
+        longitude = parseFloat(getCookie("longitude"));
+        return Promise.resolve();
+    }
+
     return new Promise((resolve, reject) => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 function (position) {
                     latitude = position.coords.latitude;
                     longitude = position.coords.longitude;
+
+                    document.cookie=`latitude=${latitude}`
+                    document.cookie=`longitude=${longitude}`
                     resolve(); // Resolve the promise when location is obtained
                 },
                 function (error) {
@@ -80,7 +110,7 @@ setInterval(() => {
     time.hour = time.hour % 12 || 12;
 
     document.querySelector('#time').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}:${String(time.second).padStart(2, '0')} ${amPm}`;
-    // document.querySelector('#time-at-wind').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')} ${amPm}`;
+    document.querySelector('#time-at-wind').textContent = `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')} ${amPm}`;
 }, 500);
 
 addEventListener('keypress', (event) => {
