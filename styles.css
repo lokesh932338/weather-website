@@ -350,7 +350,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-item:center;
-    gap:10px;
+    gap:20px;
 }
 .contributer {
    display: flex;
