@@ -348,7 +348,7 @@ footer {
     border-radius: 0.3em;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-item:center;
 }
 .contributer {
